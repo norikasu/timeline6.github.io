@@ -1,0 +1,476 @@
+@charset "utf-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ccffff;
+  color: #333;
+  font-size: 15px;
+  line-height: 2;
+  zoom: 0.9;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #3583aa;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #788d98;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+}
+
+.title {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 200px;
+}
+
+.global-nav {
+  float: right;
+  margin-top: 35px;
+  margin-right: 50px;
+}
+
+.global-nav li {
+  float: left;
+  margin: 150px 70px;
+  font-size: 70px;
+  list-style: none;
+}
+
+.global-nav li a {
+  color: #000;
+}
+
+.global-nav li a:hover {
+  border-bottom: 2px solid #000;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+
+#wrap {
+  clear: both;
+}
+
+.content {
+  width: 104%;
+  margin: auto;
+}
+
+.timeline_top a {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 60px;
+  width: 880px;
+  display: block;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 3px solid #009cd3;
+}
+
+.timeline_top a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #009cd3;
+}
+
+.other_timeline a {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 60px;
+  width: 880px;
+  display: block;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 3px solid #009cd3;
+}
+
+.other_timeline a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #009cd3;
+}
+
+.btn a {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 60px;
+  width: 880px;
+  display: block;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 3px solid #009cd3;
+}
+
+.btn a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #009cd3;
+}
+
+footer {
+  text-align: center;
+  color: #000;
+  padding: 20px 0;
+}
+
+footer small {
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 150px;
+  margin: auto 20px;
+}
+
+h2 {
+  font-size: 100px;
+  margin: 0;
+}
+
+p#text {
+  font-size: 60px;
+  margin-left: 50px;
+}
+
+p#day {
+  font-size: 70px;
+  margin: auto;
+}
+
+input#name {
+  width: 880px;
+  height: 100px;
+  font-size: 70px;
+}
+
+input#num {
+  width: 200px;
+  height: 80px;
+  font-size: 70px;
+}
+
+input#day {
+  width: 700px;
+  height: 80px;
+  font-size: 70px;
+}
+
+table {
+  table-layout: fixed;
+  background: #fff;
+}
+
+th {
+  border: 1px solid #000;
+}
+
+td {
+  border: 2px solid #000;
+  vertical-align: bottom;
+}
+
+td b#import {
+  color: #cc0000;
+  font-size: 50px;
+  vertical-align: middle;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+p.resident1 {
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
+}
+
+th#level1 {
+  background-color: #ffffcc;
+  text-align: center;
+  font-size: 50px;
+}
+
+th#level2 {
+  background-color: #ffff00;
+  text-align: center;
+  font-size: 50px;
+}
+
+th#level3 {
+  background-color: #ff3333;
+  text-align: center;
+  font-size: 50px;
+}
+
+th#level4 {
+  background-color: #cc66ff;
+  text-align: center;
+  font-size: 50px;
+}
+
+th#level5 {
+  background-color: #cc00cc;
+  text-align: center;
+  font-size: 50px;
+}
+
+th#after_disaster {
+  text-align: center;
+}
+
+th.lead_time {
+  font-size: 50px;
+  background: #0066ff;
+  color: #fff;
+}
+
+th.time {
+  font-size: 50px;
+  background: #0066ff;
+  color: #fff;
+}
+
+th.level {
+  font-size: 50px;
+  background: #0066ff;
+  color: #fff;
+}
+
+th.disaster_prevention_related_organizations {
+  width: 100px;
+  font-size: 50px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background: #0066ff;
+  color: #fff;
+}
+
+th.add {
+  background: #0066ff;
+  color: #fff;
+}
+
+th.weather {
+  font-size: 70px;
+}
+
+th.mlit {
+  font-size: 70px;
+}
+
+th.pre {
+  font-size: 70px;
+}
+
+th.city {
+  font-size: 70px;
+}
+
+th.fire {
+  font-size: 70px;
+}
+
+th.police {
+  font-size: 70px;
+}
+
+th.fire_brigade {
+  font-size: 70px;
+}
+
+th.disaster_prevention {
+  font-size: 70px;
+}
+
+th.resident {
+  font-size: 70px;
+}
+
+td.dropbox {
+  background-color: #fff;
+}
+
+th.entire {
+  margin: auto;
+  background-color: #fff;
+}
+
+td#c009 {
+  width: 880px;
+}
+
+div.draggable {
+  width: auto;
+  height: auto;
+  background-color: #fff;
+}
+
+div.droppable {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  align: center;
+}
+
+div.droppable1 {
+  width: 100%;
+  height: 160px;
+  background-color: #fff;
+  align: center;
+}
+
+div.im {
+  width: 250px;
+  color: #000;
+  font-weight: bold;
+}
+
+p.im_en {
+  font-size: 60px;
+  writing-mode: vertical-rl;
+  text-orientation: center;
+}
+
+p#im_mlit {
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  text-orientation: center;
+}
+
+p#im_pre {
+  font-size: 60px;
+  font-weight: bold;
+  vertical-align: middle;
+  writing-mode: vertical-rl;
+  text-orientation: center;
+}
+
+p.im_num {
+  font-size: 50px;
+  display: inline;
+}
+
+p#disaster_prevention_related_organizations1 {
+  margin: 0;
+  font-size: 80px;
+  writing-mode: vertical-rl;
+  text-orientation: center;
+}
+
+input.yes1 {
+  font-size: 60px;
+  width: 950px;
+  font-weight: bold;
+  text-align: center;
+}
+
+input.ent {
+  width: 100%;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+div.pre {
+  display: inline;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+div.stt {
+  display: inline;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+div.fin {
+  display: inline;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+div.add {
+  width: 880px;
+  font-size: 70px;
+}
+
+div.box {
+  width: 100%;
+  height: 100%;
+  background: #ced;
+  border: 1px solid #000;
+}
+
+div.sub {
+  width: auto;
+  height: auto;
+  background-color: #fff;
+  display: inline;
+}
+
+input.sub {
+  width: 875px;
+  height: 60px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+marquee {
+  width: 5000px;
+  height: auto;
+  margin: auto;
+  padding: auto;
+}
+
+div.marq_box {
+  width: 5000px;
+  height: auto;
+  margin: auto;
+  padding: auto;
+  background-color: #cc0000;
+}
+
+.balloon1 {
+ display: none;
+}
+
+.balloons1 {
+ position: absolute;
+ display: block;
+ padding: 2px;
+ background-color: #ced;
+ width: 880px;
+ height: 330px;
+ font-size: 60px;
+}
