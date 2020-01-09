@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <meta http-equiv="Content-Type" content="text/html charset="utf-8"/>
+    <title>災害に強いまちづくりを目指して&nbsp;&nbsp;～タイムラインの活用～</title>
+    <link rel="stylesheet" href="page3.css" type="text/css">
+    <meta name="description" content="リアルタイム情報共有プラットホーム「タイムライン」"/>
+    <meta name="keyword" content="タイムライン,避難計画,防災"/>
+    <script type="text/javascript">
+
+      // ドラッグ開始時にデータの値を設定する
+      function DragStart(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      // ドロップ時に元のドラッグ値を取得し、現在の要素上に入れ子で保存する
+      function Drop(event) {
+        var id = event.dataTransfer.getData("text");
+        var elm = document.getElementById(id);
+        event.currentTarget.appendChild(elm);
+        event.preventDefault();
+      }
+
+      // ブラウザ標準のドロップ動作をキャンセル
+      function DragOver(event) {
+        event.preventDefault();
+      }
+    </script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="garlic.js"></script>
+    <script>
+      $(function(){
+      $(“form”).garlic();
+      });
+    </script>
+  </head>
+  <body id="page2_1">
+
+   <!-- headerの始まり -->
+   <header>
+    <a name="pagetop"></a>
+     <div class="title">
+      災害に強いまちづくりを目指して&nbsp;&nbsp;～タイムラインの活用～
+     </div>
+     <nav>
+       <ul class="global-nav">
+         <li><a href="page1/page1.html">本サイト</a></li>
+         <li><a href="page1/page2/page2.html">タイムライン</a></li>
+         <li><a href="uwatu2/many_timeline/top-page5.html">多機関連携型タイムライン</a></li>
+         <li><a href="uwatu2/page3-2.html">地域タイムライン</a></li>
+       </ul>
+     </nav>
+   </header>
+   <!-- headerの終わり -->
+
+   <!-- wrapの始まり -->
+   <div id="wrap">
+     <div class="content">
+       <div class="main-center">
+         <h2>１．マイ・タイムラインの作成</h2>
+         <form data-persist="garlic" method="post">
+         作成日：<input id="day" type="date" name="date" value="date">
+         </form>
+         <table>
+           <tr>
+             <td>
+               <b>１-１　あなたの災害リスクは？</b><br>
+               <form data-persist="garlic" method="post">
+               🔶洪水：
+               <input class="check" name="a" type="checkbox" style="background-color:#fff">あり
+               <input class="check" name="b" type="checkbox" style="background-color:#fff">なし<br>
+               　　浸水深：<input class="number" name="number1" type="number" min="0" step="0.1"> m<br>
+               🔶土砂災害：
+               <input class="check" name="c" type="checkbox" style="background-color:#fff">あり
+               <input class="check" name="d" type="checkbox" style="background-color:#fff">なし<br>
+               🔶津波：
+               <input class="check" name="e" type="checkbox" style="background-color:#fff">あり
+               <input class="check" name="f" type="checkbox" style="background-color:#fff">なし<br>
+               　　浸水深：<input class="number" name="number2" type="number" min="0" step="0.1"> m<br>
+               　　津波到達時間：<input class="number" name="number3" type="number" min="1"> 分<br>
+               🔶高潮：
+               <input class="check" name="g" type="checkbox" style="background-color:#fff">あり
+               <input class="check" name="h" type="checkbox" style="background-color:#fff">なし<br>
+               </form>
+             </td>
+             <td>
+               <b>１-２　家族について</b><br>
+               １-２-１　家族<br>
+               <form data-persist="garlic" method="post">
+               <input class="number" name="i" type="number" min="1"> 人<br>
+               </form>
+               １-２-２　家族状況(12文字以内)<br>
+               <form data-persist="garlic" method="post">
+               <input type="text" name="j" style="background-color:#fff">
+               <input type="text" name="k" style="background-color:#fff"><br>
+               <input type="text" name="l" style="background-color:#fff">
+               <input type="text" name="m" style="background-color:#fff"><br>
+               <input type="text" name="n" style="background-color:#fff">
+               <input type="text" name="o" style="background-color:#fff"><br>
+               <input type="text" name="p" style="background-color:#fff">
+               <input type="text" name="q" style="background-color:#fff"><br>
+               <input type="text" name="r" style="background-color:#fff">
+               <input type="text" name="s" style="background-color:#fff"><br>
+               </form>
+             </td>
+           </tr>
+         </table>
+         <h3>１-３　マイ・タイムラインを作成しよう</h3>
+         <table>
+           <tr>
+             <th colspan="3">警戒level</th>
+             <th class="level" id="level1">1</th>
+             <th class="level" id="level2">2</th>
+             <th class="level" id="level3">3</th>
+             <th class="level" id="level4">4</th>
+             <td rowspan="16" id="complete">避難完了</td>
+             <th class="level" id="level5">5</th>
+           </tr>
+           <tr>
+             <th rowspan="6">気象情報<br>（気象庁）</th>
+             <th colspan="2">警報<br>注意報</th>
+             <td><div class="not_caution" id="early_caution">
+               早期注意情報<br>（警報級の可能性）
+             </div>
+             </td>
+             <td>
+               <div class="caution" id="rain_caution">
+                 大雨注意報
+               </div>
+             </td>
+             <td>
+               <div class="alarm" id="rain_alarm">
+                 大雨警報
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm" id="special_alarm">
+                 大雨特別警報
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm" id="disaster">
+                 災害発生
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th class="flood" rowspan="2">洪水</th>
+             <th>警報<br>注意報</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 洪水注意報<br>
+                 洪水警報の危険度分布(注意)
+               </div>
+             </td>
+             <td>
+               <div class="alarm">
+                 洪水警報<br>
+                 洪水警報の危険度分布(警戒)
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 <br>
+                 洪水警報の危険度分布(非常に危険)
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm">
+                 <br>
+                 洪水警報の危険度分布(極めて危険)
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th>河川情報</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 氾濫注意水位到達
+               </div>
+             </td>
+             <td>
+               <div class="alarm">
+                 避難判断水位到達
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 氾濫危険水位到達
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm">
+                 氾濫発生
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th colspan="2">土砂災害</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 <br>
+                 土砂災害の危険度分布(注意)
+               </div>
+             </td>
+             <td>
+               <div class="alarm">
+                 <br>
+                 土砂災害の危険度分布(警戒)
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 土砂災害警戒情報<br>
+                 土砂災害の危険度分布(非常に危険)
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm">
+                 <br>
+                 土砂災害の危険度分布(極めて危険)
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th colspan="2">津波</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 津波注意報
+               </div>
+             </td>
+             <td>
+               <div class="alarm">
+                 津波警報
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 大津波警報
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm">
+                 津波到達
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th colspan="2">高潮</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 高潮注意報
+               </div>
+             </td>
+             <td></td>
+             <td>
+               <div class="special_alarm">
+                 高潮警報<br>
+                 高潮特別警報
+               </div>
+             </td>
+             <td></td>
+           </tr>
+           <tr>
+             <th colspan="3">避難情報</th>
+             <td>
+               <div class="not_caution">
+                 災害への心構え<br>
+                 避難先の確認
+               </div>
+             </td>
+             <td>
+               <div class="caution">
+                 自主避難等の呼びかけ
+               </div>
+             </td>
+             <td>
+               <div class="alarm">
+                 避難準備・高齢者等避難開始
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 避難勧告
+               </div>
+             </td>
+             <td>
+               <div class="super_special_alarm">
+                 避難指示(緊急)
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th rowspan="4">行動</th>
+             <th rowspan="4">私・家族</th>
+             <th>
+               洪水<br>
+               <form data-persist="garlic" method="post">
+               避難先：
+               <input name="t" type="text" placeholder="入力してください" style="background-color:#fff"><br>
+               <textarea name="u" rows="2" cols="30" placeholder="何かあれば記入してください"></textarea>
+               </form>
+             </th>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th>
+               土砂災害<br>
+               <form data-persist="garlic" method="post">
+               避難先：
+               <input name="v" type="text" placeholder="入力してください" style="background-color:#fff"><br>
+               <textarea name="w" rows="2" cols="30" placeholder="何かあれば記入してください"></textarea>
+               </form>
+             </th>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th>
+               津波<br>
+               <form data-persist="garlic" method="post">
+               避難先：
+               <input name="x" type="text" placeholder="入力してください" style="background-color:#fff"><br>
+               <textarea name="y" rows="2" cols="30" placeholder="何かあれば記入してください"></textarea>
+               </form>
+             </th>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th>
+               高潮<br>
+               <form data-persist="garlic" method="post">
+               避難先：
+               <input name="z" type="text" placeholder="入力してください" style="background-color:#fff"><br>
+               <textarea name="aa" rows="2" cols="30" placeholder="何かあれば記入してください"></textarea>
+               </form>
+             </th>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td>
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th colspan="2" rowspan="4">地域</th>
+             <th>洪水</th>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+           <tr>
+             <th>土砂災害</th>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+           <tr>
+             <th>津波</th>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+           <tr>
+             <th>高潮</th>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+         </table>
+         <div class="box" id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)">
+           各災害における家族の行動を下に入力し、指定の災害の追加場所(黒い背景)へドラックしてください。（文字数制限：12文字　13文字目以降は表示されません）<br>
+           <form data-persist="garlic" method="post">
+           <div class="sub" id="sub1" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub1" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub2" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub2" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub3" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub3" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub4" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub4" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub5" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub5" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub6" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub6" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub7" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub7" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub8" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub8" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub9" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub9" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub10" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub10" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub11" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub11" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub12" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub12" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub13" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub13" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub14" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub14" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub15" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub15" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub16" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub16" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub17" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub17" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub18" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub18" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub19" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub19" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub20" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub20" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub21" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub21" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub22" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub22" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub23" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub23" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub24" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub24" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub25" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub25" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub26" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub26" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub27" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub27" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub28" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub28" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub29" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub29" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub30" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub30" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub31" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub31" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub32" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub32" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub33" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub33" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub34" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub34" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub35" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub35" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub36" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub36" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub37" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub37" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub38" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub38" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub39" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub39" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub40" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub40" type="text" placeholder="入力してください" style="background-color:#fff">
+           </form>
+           </div>
+         </div>
+         <table>
+         <br>
+         <h2>２．防災チェックリストを確認しよう</h2>
+         <form data-persist="garlic" method="post">
+         チェック日：<input name="date2" type="date" name="checkdate" value="checkdate">
+         </form>
+           <tr>
+             <th colspan="4">
+               防災チェックリスト<br>
+             </th>
+           </tr>
+           <tr>
+             <th>安否・避難確認</th>
+             <th>住宅の耐震化</th>
+             <th>家具の固定</th>
+             <th>備蓄品(人数分用意しよう)</th>
+           </tr>
+           <tr>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="ab" type="checkbox" style="background-color:#fff">
+               家族の安否確認の方法を話し合っている<br>
+               <input name="ac" type="checkbox" style="background-color:#fff">
+               自宅からの避難場所を確認している<br>
+               <input name="ad" type="checkbox" style="background-color:#fff">
+               外出先からの避難場所を確認している<br>
+               <input name="ae" type="checkbox" style="background-color:#fff">
+               避難場所までの経路を確認している<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="af" type="checkbox" style="background-color:#fff">
+               家の耐震診断を受けた<br>
+               <input name="ag" type="checkbox" style="background-color:#fff">
+               家の耐震改修をした<br>または耐震基準を満たしていた<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="ah" type="checkbox" style="background-color:#fff">
+               家具は倒れないように固定されている<br>
+               <input name="ai" type="checkbox" style="background-color:#fff">
+               家具の上に危険なものを置かないようにしている<br>
+               <input name="aj" type="checkbox" style="background-color:#fff">
+               寝る場所の近くには、倒れてきそうな家具はない<br>
+               <input name="ak" type="checkbox" style="background-color:#fff">
+               万が一、家具が倒れても部屋の出口はふさがれない<br>
+               <input name="al" type="checkbox" style="background-color:#fff">
+               ガラス付きの家具には、ガラス飛散防止フィルムを張っている<br>
+               <input name="am" type="checkbox" style="background-color:#fff">
+               食器棚等の観音開きの扉には、止め金をつけている<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="an" type="checkbox" style="background-color:#fff">
+               飲料水　４日分<br>(１人１日３リットルが目安)<br>
+               <input name="ao" type="checkbox" style="background-color:#fff">
+               非常食　４日分の食料<br>(アルファ米などのご飯、ビスケット、板チョコ、乾パンなど)<br>
+               <input name="ap" type="checkbox" style="background-color:#fff">
+               トイレットペーパー<br>
+               <input name="aq" type="checkbox" style="background-color:#fff">
+               ティッシュペーパー<br>
+               <input name="ar" type="checkbox" style="background-color:#fff">
+               マッチ、ろうそく<br>
+               <input name="as" type="checkbox" style="background-color:#fff">
+               カセットコンロ<br>
+               </form>
+             </td>
+           </tr>
+         </table>
+         <table>
+           <tr>
+             <th colspan="5">非常用持ち出しバック(人数分用意しよう)</th>
+           </tr>
+           <tr>
+             <th>
+               非常食品<br>(最低でも３日分は用意)
+             </th>
+             <th>
+               貴重品
+             </th>
+             <th>
+               避難用具
+             </th>
+             <th>
+               生活用品
+             </th>
+             <th>
+               救急用具
+             </th>
+           </tr>
+           <tr>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="at" type="checkbox" style="background-color:#fff">
+               乾パン<br>
+               <input name="au" type="checkbox" style="background-color:#fff">
+               缶詰<br>
+               <input name="av" type="checkbox" style="background-color:#fff">
+               栄養補助食品<br>
+               <input name="aw" type="checkbox" style="background-color:#fff">
+               アメ・チョコレート<br>
+               <input name="ax" type="checkbox" style="background-color:#fff">
+               飲料水<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="ay" type="checkbox" style="background-color:#fff">
+               現金　１０円玉<br>
+               <input name="az" type="checkbox" style="background-color:#fff">
+               預金通帳<br>
+               <input name="ba" type="checkbox" style="background-color:#fff">
+               印鑑<br>
+               <input name="bb" type="checkbox" style="background-color:#fff">
+               保険証<br>
+               <input name="bc" type="checkbox" style="background-color:#fff">
+               免許証<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="bd" type="checkbox" style="background-color:#fff">
+               懐中電灯<br>
+               <input name="be" type="checkbox" style="background-color:#fff">
+               携帯ラジオ<br>
+               <input name="bf" type="checkbox" style="background-color:#fff">
+               予備の乾電池<br>
+               <input name="bg" type="checkbox" style="background-color:#fff">
+               ヘルメット・防災ずきん<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="bh" type="checkbox" style="background-color:#fff">
+               厚手の手袋<br>
+               <input name="bi" type="checkbox" style="background-color:#fff">
+               毛布<br>
+               <input name="bj" type="checkbox" style="background-color:#fff">
+               缶切り<br>
+               <input name="bk" type="checkbox" style="background-color:#fff">
+               ライター・マッチ<br>
+               <input name="bl" type="checkbox" style="background-color:#fff">
+               マッチ<br>
+               <input name="bm" type="checkbox" style="background-color:#fff">
+               携帯用トイレ<br>
+               </form>
+             </td>
+             <td>
+               <form data-persist="garlic" method="post">
+               <input name="bn" type="checkbox" style="background-color:#fff">
+               救急箱<br>
+               <input name="bo" type="checkbox" style="background-color:#fff">
+               処方箋の控え<br>
+               <input name="bp" type="checkbox" style="background-color:#fff">
+               胃腸薬・便秘薬・持病の薬<br>
+               <input name="bq" type="checkbox" style="background-color:#fff">
+               生理用品<br>
+               </form>
+             </td>
+           </tr>
+          </table>
+          <p class="other_timeline"><a href="#">各地のタイムライン</a></p>
+          <p class="btn"><a href="#pagetop">Page Top▲</a></p>
+          <form>
+            <input type="button" value="戻る" onclick="history.back()">
+            <input type="button" value="更新" onclick="location.reload(true)">
+            <input type="button" value="進む" onclick="history.forward()">
+            <input type="button" value="トップページへ" onclick="location.href=''">
+          </form>
+       </div>
+     </div>
+   </div>
+   <!-- wrapの終わり -->
+
+   <!-- footerの始まり -->
+   <footer>
+     <small>(C)2019 愛媛大学 大気・水環境研究室 粕谷成貴</small>
+     <script type="text/javascript">
+       var str = document.lastModified;
+       document.write(str);
+     </script>
+   </footer>
+   <!-- footerの終わり -->
+
+  </body>
+</html>

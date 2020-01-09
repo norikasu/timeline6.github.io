@@ -1,0 +1,257 @@
+﻿@charset "utf-8";
+
+body {
+  margin : 0;
+  padding : 0;
+  background-color : #ccc;
+  color : #333;
+  font-size : 15px;
+  line-height : 2;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin-top : 0;
+}
+
+img {
+  vertical-align : bottom;
+}
+
+ul {
+  margin : 0;
+  padding : 0;
+}
+
+a {
+  color : #3583aa;
+  text-decoration : none;
+}
+
+a:visited {
+  color : #788d98:
+}
+
+a:hover {
+  text-decoration : underline;
+}
+
+header {
+  width : 100%;
+  height : 80px;
+  margin : 0;
+}
+
+.title {
+  float : left;
+  margin-top : 20px;
+  margin-left : 20px;
+  font-size : 30px;
+}
+
+.global-nav {
+  float : right;
+  margin-top : 35px;
+  margin-right : 50px;
+}
+
+.global-nav li {
+  float : left;
+  margin : 0 20px;
+  font-size : 20px;
+  list-style : none;
+}
+
+.global-nav li a {
+  color : #fff;
+}
+
+.global-nav li a:hover {
+  border-bottom : 2px solid #fff;
+  padding-bottom : 3px;
+  text-decoration : none;
+}
+
+#wrap {
+  clear : both;
+}
+
+.content {
+  width : 100%;
+  margin : auto 10px;
+}
+
+.other_timeline a {
+  background-color : #009cd3;
+  color : #fff;
+  font-size : 20px;
+  width : 185px;
+  display : block;
+  text-align : center;
+  line-height : 30px;
+  margin-top : 20px;
+  border-radius : 5px;
+  border : 3px solid #009cd3;
+}
+
+.other_timeline a:hover {
+  text-decoration : none;
+  background-color : #fff;
+  color : #009cd3;
+}
+
+.other_timeline {
+  float : right;
+}
+
+.btn a {
+  background-color : #009cd3;
+  color : #fff;
+  font-size : 20px;
+  width : 185px;
+  display : block;
+  text-align : center;
+  line-height : 30px;
+  margin-top : 20px;
+  border-radius : 5px;
+  border : 3px solid #009cd3;
+}
+
+.btn a:hover {
+  text-decoration : none;
+  background-color : #fff;
+  color : #009cd3;
+}
+
+footer {
+  text-align : center;
+  color : #000;
+  padding : 20px 0;
+}
+
+footer small {
+  font-size : 12px;
+}
+
+h1 {
+  margin-bottom: : auto;
+}
+
+h2 {
+  margin-bottom: auto;
+}
+
+h3 {
+  margin-bottom: auto;
+}
+
+input.check {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+input.number {
+  width: 50px;
+}
+
+h3 {
+  margin-top: 20px;;
+  margin-bottom: auto;
+}
+
+table {
+  table-layout: fixed;
+  margin: 0;
+}
+
+th {
+  border: 1px solid #000;
+}
+
+td {
+  border: 1px solid #000;
+}
+
+td#complete {
+  width: 35px;
+  text-align: center;
+  background: #66ccff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+th#level1 {
+  background: #4496d3;
+}
+
+th#level2 {
+  background: #ffff00;
+}
+
+th#level3 {
+  background: #ff3333;
+}
+
+th#level4 {
+  background: #cc66ff;
+}
+
+th#level5 {
+  background: #cc00cc;
+}
+
+div.not_caution {
+  width: 200px;
+  background: #4496d3;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.caution {
+  background: #ffff00;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.alarm {
+  background: #ff3333;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.special_alarm {
+  background: #cc66ff;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.super_special_alarm {
+  background: #cc00cc;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.droppable {
+  width: 100%;
+  height: 100px;
+  background-color: #000;
+}
+
+div.box {
+  width: 100%;
+  height: 100%;
+  background: #ced;
+  border: 1px solid #000;
+}
+
+div.sub {
+  width: auto;
+  height: auto;
+  background-color: #fff;
+  display: inline;
+}
+
+input.sub {
+  height: 24px;
+  font-weight: bold;
+}
