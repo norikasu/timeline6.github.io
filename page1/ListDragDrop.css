@@ -1,0 +1,11 @@
+#del{
+  width:120px;
+  height:60px;
+  border: solid 2px #ff6a00;
+}
+
+tr#list1 > td {
+  display: block;
+  width: 150px;
+  border: 1px solid #808080;
+}
