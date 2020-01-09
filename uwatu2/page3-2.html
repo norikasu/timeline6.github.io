@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+    <script src="time/time_button.js"></script>
+    <script src="time/time_button - コピー (2).js"></script>
+    <script src="time/time_button - コピー (3).js"></script>
+    <script src="time/time_button - コピー (4).js"></script>
+    <script src="time/time_button - コピー (5).js"></script>
+    <script src="time/time_button - コピー (6).js"></script>
+    <script src="time/time_button - コピー (7).js"></script>
+    <script src="time/time_button - コピー (8).js"></script>
+    <script src="time/time_button - コピー (9).js"></script>
+    <script src="time/time_button - コピー (10).js"></script>
+    <script src="time/time_button - コピー (11).js"></script>
+    <script src="time/time_button - コピー (12).js"></script>
+    <script src="time/time_button - コピー (13).js"></script>
+    <script src="time/time_button - コピー (14).js"></script>
+    <script src="time/time_button - コピー (15).js"></script>
+    <script src="time/time_button - コピー (16).js"></script>
+    <script src="time/time_button - コピー (17).js"></script>
+    <script src="time/time_button - コピー (18).js"></script>
+    <script src="time/time_button - コピー (19).js"></script>
+    <script src="time/time_button - コピー (20).js"></script>
+    <script src="time/time_button - コピー (21).js"></script>
+    <script src="time/time_button - コピー (22).js"></script>
+    <script src="time/time_button - コピー (23).js"></script>
+    <script src="time/time_button - コピー (24).js"></script>
+    <script src="time/time_button - コピー (25).js"></script>
+    <script src="time/time_button - コピー (26).js"></script>
+    <!-- callout script -->
+    <script src="callout2/callout - コピー.js"></script>
+    <script src="callout2/callout - コピー (2).js"></script>
+    <script src="callout2/callout - コピー (3).js"></script>
+    <script src="callout2/callout - コピー (4).js"></script>
+    <script src="callout2/callout - コピー (5).js"></script>
+    <script src="callout2/callout - コピー (6).js"></script>
+    <script src="callout2/callout - コピー (7).js"></script>
+    <script src="callout2/callout - コピー (8).js"></script>
+    <script src="callout2/callout - コピー (9).js"></script>
+    <script src="callout2/callout - コピー (10).js"></script>
+    <script src="callout2/callout - コピー (11).js"></script>
+    <script src="callout2/callout - コピー (12).js"></script>
+    <script src="callout2/callout - コピー (13).js"></script>
+    <script src="callout2/callout - コピー (14).js"></script>
+    <script src="callout2/callout - コピー (15).js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html charset="utf-8"/>
+    <title>災害に強いまちづくりを目指して&nbsp;&nbsp;～タイムラインの活用～</title>
+    <link rel="stylesheet" href="page3.css" type="text/css">
+    <meta name="description" content="リアルタイム情報共有プラットホーム「タイムライン」"/>
+    <meta name="keyword" content="タイムライン,避難計画,防災"/>
+    <script type="text/javascript">
+
+      // ドラッグ開始時にデータの値を設定する
+      function DragStart(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      // ドロップ時に元のドラッグ値を取得し、現在の要素上に入れ子で保存する
+      function Drop(event) {
+        var id = event.dataTransfer.getData("text");
+        var elm = document.getElementById(id);
+        event.currentTarget.appendChild(elm);
+        event.preventDefault();
+      }
+
+      // ブラウザ標準のドロップ動作をキャンセル
+      function DragOver(event) {
+        event.preventDefault();
+      }
+    </script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="garlic.js"></script>
+    <script>
+      $(function(){
+      $(“form”).garlic();
+      });
+    </script>
+  </head>
+  <body id="page2_1">
+
+   <!-- headerの始まり -->
+   <header>
+    <a name="pagetop"></a>
+     <div class="title">
+      災害に強いまちづくりを目指して&nbsp;&nbsp;～タイムラインの活用～
+     </div>
+     <nav>
+       <ul class="global-nav">
+         <li><a href="page1/page1.html">本サイト</a></li>
+         <li><a href="page1/page2/page2.html">タイムライン</a></li>
+         <li><a href="many_timeline/top-page5.html">多機関連携型タイムライン</a></li>
+         <li><a href="page3/page3-2.html">Myタイムライン</a></li>
+       </ul>
+     </nav>
+   </header>
+   <!-- headerの終わり -->
+
+   <!-- wrapの始まり -->
+   <div id="wrap">
+     <div class="content">
+       <div class="main-center">
+         <h2>地域・タイムラインの作成</h2>
+         <form data-persist="garlic" method="post">
+         <b>宇和津地区</b>
+         作成日：<input id="day" type="date" name="date" value="date">
+         </form>
+         <table>
+           <tr>
+             <th class="label" id="level" colspan="2">警戒level（土砂災害切迫度）</th>
+             <th class="level" id="level1">1</th>
+             <th class="level" id="level2">2</th>
+             <th class="level" id="level3">3</th>
+             <th colspan="2" class="level" id="level4">4</th>
+             <td rowspan="4" id="compl">避難完了</td>
+             <th class="level" id="level5">5</th>
+           </tr>
+           <tr>
+             <th class="label" rowspan="3">気象情報<br>（気象庁）</th>
+             <th class="label">警報・注意報</th>
+             <td>
+             </td>
+             <td>
+               <div class="caution" id="rain_caution">
+                 大雨注意報
+                 （土砂災害）
+               </div>
+             </td>
+             <td>
+               <div class="alarm" id="rain_alarm">
+                 大雨警報
+                 （土砂災害）
+               </div>
+             </td>
+             <td colspan="2"></td>
+             <td>
+               <div class="super_special_alarm" id="disaster">
+                 大雨特別警報
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th class="label">土砂災害危険度分布</th>
+             <td></td>
+             <td>
+               <div class="caution">
+                 注意
+               </div>
+             </td>
+             <td>
+               <div class="alarm" id="alarm">
+                 警戒
+               </div>
+             </td>
+             <td colspan="2">
+               <div class="special_alarm" id="super_danger">
+                 非常に危険
+               </div>
+               <div class="super_special_alarm" id="super_special_danger">
+                 極めて危険
+               </div>
+             </td>
+             <td></td>
+           </tr>
+           <tr>
+             <th class="label">土砂災害警戒情報</th>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td colspan="2">
+               <div class="special_alarm">
+                 土砂災害警戒情報の発表
+               </div>
+             </td>
+             <td></td>
+           </tr>
+           <tr>
+             <th class="label" colspan="2">避難情報等（宇和島市）</th>
+             <td></td>
+             <td></td>
+             <td>
+               <div class="alarm" id="prepare_for_evacuation">
+                 避難準備・高齢者等避難開始<br>
+               </div>
+               <div id="font">
+                 <p class="font"><b>避難の準備や早めの避難を</b></p>
+               </div>
+             </td>
+             <td>
+               <div class="special_alarm">
+                 避難勧告<br>
+               </div>
+                 <p class="font"><b>すみやかに安全な場所へ避難を</b></p>
+             </td>
+             <td colspan="3">
+               <div class="super_special_alarm" id="evacuation_instructions">
+                 避難指示(緊急)<br>
+               </div>
+               <div id="safety_action">
+                 <p class="font"><b>ただちに安全を確保する行動を</b></p>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <th class="label" rowspan="10">地域の役割</th>
+             <th class="sick">
+               会長<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="president"  placeholder="氏名">
+               </form>
+             </th>
+             <td class="a" id="a01">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="a" id="a02">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+               <input class="yes1" id="yes01" type="button" value="市との連絡調整(随時)" style="background-color:#fff" onmousedown="showBalloon1()">
+               <textarea class="balloon1" id="makeImg1" name="name" rows="6" cols="36"></textarea>
+             </div>
+             <input class="st" id="Button1" type="button" value="開始" onclick="changeBoxColor1('#ffff00')""/>
+             <input class="fi" id="Button2" type="button" value="終了" onclick="changeBoxColor1('#66ccff')""/>
+             </td>
+             <td class="a" id="a03">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="高齢者等の避難状況の確認" style="background-color:#fff" onmousedown="showBalloon2()">
+                 <textarea class="balloon1" id="makeImg2" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="開始" onclick="changeBoxColor2('#ff3333')""/>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="changeBoxColor2('#66ccff')""/>
+             </td>
+             <td class="a" id="a04" colspan="2">
+               <div class="confirmation">
+                 <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                   <input class="yes1" id="confirmation1" type="button" value="避難状況の確認" style="background-color:#fff" onmousedown="showBalloon15()">
+                   <textarea class="balloon1" id="makeImg15" name="name" rows="6" cols="36"></textarea>
+                 </div>
+                 <input class="st" id="Button05" type="button" value="開始" onclick="changeBoxColor3('#cc66ff')""/>
+                 <input class="fi" id="Button06" type="button" value="完了" onclick="changeBoxColor3('#66ccff')""/>
+               </div>
+             </td>
+             <td class="comp" id="complete" rowspan="10">
+               避難完了
+               <input class="fi" id="Button6" type="button" value="全員避難完了" onclick="changeBoxColor16('#66ccff')""/>
+             </td>
+             <td class="a" id="a05"></td>
+           </tr>
+           <tr>
+             <th class="sick">
+               情報収集担当<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="information_gathering"  placeholder="氏名">
+               </form>
+             </th>
+               <td class="b" id="b01">
+                 <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+                 </div>
+               </td>
+               <td class="b" id="b02" colspan="3">
+                 <div class="draggable" id="a1">
+                  <input class="yes1" id="information_gathering" type="button" value="気象情報・避難所情報の収集、会長・連絡調整担当への連絡" style="background-color:#fff" onmousedown="showBalloon3()">
+                  <textarea class="balloon1" id="makeImg3" name="name" rows="6" cols="36"></textarea>
+                 </div>
+                 <input class="pre" id="Button2" type="button" value="情報収集中" onclick="exec1();changeBoxColor4('#ffff00')"/><div class="pre" id="output1"></div><br>
+                 <input class="st" id="Button3" type="button" value="連絡開始" onclick="exec2();changeBoxColor4('#ff3333')""/><div class="stt" id="output2"></div><br>
+                 <input class="fi" id="Button4" type="button" value="完了" onclick="exec3();changeBoxColor4('#66ccff')""/><div class="fin" id="output3"></div>
+               </td>
+               <td class="b" id="b04">
+                 <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+                 </div>
+               </td>
+               <td class="b" id="b05"></td>
+             </tr>
+           <tr>
+             <th class="sick">
+               連絡調整担当<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="contact_coordination"  placeholder="氏名">
+               </form>
+             </th>
+               <td class="c" id="c01">
+                 <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+                 </div>
+               </td>
+               <td class="c" id="c02" colspan="2">
+                 <div class="draggable" id="a1">
+                  <input class="yes1" id="adjustment" type="button" value="避難誘導・避難支援担当への連絡調整" style="background-color:#fff" onmousedown="showBalloon4()">
+                  <textarea class="balloon1" id="makeImg4" name="name" rows="6" cols="36"></textarea>
+                 </div>
+                 <input class="st" id="Button3" type="button" value="調整中" onclick="exec4();changeBoxColor5('#ffff00')""/><div class="stt" id="output4"></div><br>
+                 <input class="fi" id="Button4" type="button" value="終了" onclick="exec5();changeBoxColor5('#66ccff')""/><div class="fin" id="output5"></div>
+               </td>
+               <td class="c" id="c04" colspan="2">
+                 <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+                 </div>
+               </td>
+               <td class="c" id="c05"></td>
+             </tr>
+           <tr>
+             <th class="sick" rowspan="2">
+               避難誘導担当<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="evacuation_guidance1"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_guidance2"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_guidance3"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_guidance4"  placeholder="氏名"><br>
+               </form>
+             </th>
+             <td class="d" id="d01" rowspan="2">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="d" id="d02" rowspan="2">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="危険箇所の見回り" style="background-color:#fff" onmousedown="showBalloon5()">
+                 <textarea class="balloon1" id="makeImg5" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="見回り中" onclick="changeBoxColor6('#ffff00')""/>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="changeBoxColor6('#66ccff')""/>
+             </td>
+             <td class="d" id="d03">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="危険箇所の見回り" style="background-color:#fff" onmousedown="showBalloon6()">
+                 <textarea class="balloon1" id="makeImg6" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="見回り中" onclick="changeBoxColor7('#ff3333')""/>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="changeBoxColor7('#66ccff')""/>
+             </td>
+             <td class="d" id="d04" rowspan="2" colspan="2">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="避難の声かけしながら避難" style="background-color:#fff" onmousedown="showBalloon7()">
+                 <textarea class="balloon1" id="makeImg7" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="開始" onclick="exec6();changeBoxColor8('#cc66ff')""/><div class="stt" id="output6"></div><br>
+               <input class="fi" id="Button4" type="button" value="避難完了" onclick="exec7();changeBoxColor8('#66ccff')""/><div class="fin" id="output7"></div>
+             </td>
+             <td class="d" id="d05" rowspan="2"></td>
+           </tr>
+           <tr>
+             <td class="d" id="d06">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input  class="yes1" id="" type="button" value="避難準備の声かけ" style="background-color:#fff" onmousedown="showBalloon8()">
+                 <textarea class="balloon1" id="makeImg8" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="声かけ中" onclick="exec8();changeBoxColor9('#ff3333')""/><div class="stt" id="output8"></div><br>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="exec9();changeBoxColor9('#66ccff')""/><div class="fin" id="output9"></div>
+             </td>
+           </tr>
+           <tr>
+             <th class="sick" rowspan="2">
+               避難支援担当<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="evacuation_support1"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_support2"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_support3"  placeholder="氏名"><br>
+               <input class="name" type="text" name="evacuation_support4"  placeholder="氏名"><br>
+               </form>
+             </th>
+             <td class="e" id="e01" rowspan="2">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="e" id="e02">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="気象情報の連絡" style="background-color:#fff" onmousedown="showBalloon9()">
+                 <textarea class="balloon1" id="makeImg9" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="pre" id="Button2" type="button" value="連絡開始" onclick="exec10();changeBoxColor10('#ffff00')"/><div class="pre" id="output10"></div><br>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="exec11();changeBoxColor10('#66ccff')""/><div class="fin" id="output11"></div>
+             </td>
+             <td class="e" id="e03">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="避難所まで同行" style="background-color:#fff" onmousedown="showBalloon10()">
+                 <textarea class="balloon1" id="makeImg10" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="pre" id="Button2" type="button" value="お家へ" onclick="exec12();changeBoxColor11('#ffff00')"/><div class="pre" id="output12"></div><br>
+               <input class="st" id="Button3" type="button" value="避難所へ" onclick="exec13();changeBoxColor11('#ff3333')""/><div class="stt" id="output13"></div><br>
+               <input class="fi" id="Button4" type="button" value="避難完了" onclick="exec14();changeBoxColor11('#66ccff')""/><div class="fin" id="output14"></div>
+             </td>
+             <td class="e" id="e04" rowspan="2" colspan="2">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="避難の声がけしながら避難" style="background-color:#fff" onmousedown="showBalloon11()">
+                 <textarea class="balloon1" id="makeImg11" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="開始" onclick="exec15();changeBoxColor12('#cc66ff')""/><div class="stt" id="output15"></div><br>
+               <input class="fi" id="Button4" type="button" value="避難完了" onclick="exec16();changeBoxColor12('#66ccff')""/><div class="fin" id="output16"></div>
+             </td>
+             <td class="e" id="e05" rowspan="2"></td>
+           </tr>
+           <tr>
+             <td class="e" id="e06">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                <input class="yes1" id="yes01" type="button" value="避難の声かけ" style="background-color:#fff" onmousedown="showBalloon12()">
+                <textarea class="balloon1" id="makeImg12" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="声かけ開始" onclick="exec17();changeBoxColor13('#ffff00')""/><div class="stt" id="output17"></div><br>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="exec18();changeBoxColor13('#66ccff')""/><div class="fin" id="output18"></div>
+             </td>
+             <td class="e" id="e07">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="避難勧告情報の連絡" style="background-color:#fff" onmousedown="showBalloon13()">
+                 <textarea class="balloon1" id="makeImg13" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="連絡開始" onclick="changeBoxColor14('#ff3333')""/>
+               <input class="fi" id="Button4" type="button" value="完了" onclick="changeBoxColor14('#66ccff')""/>
+             </td>
+           </tr>
+           <tr>
+             <th class="sick">
+               避難所担当<br>
+               <form data-persist="garlic" method="post">
+               <input class="name" type="text" name="shelter" placeholder="氏名">
+               </form>
+             </th>
+             <td class="f" id="f01">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="f" id="f02">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="f" id="f03">
+               <div class="draggable" id="a1" draggable="true" ondragstart="DragStart(event)" >
+                 <input class="yes1" id="yes01" type="button" value="避難所の開設" style="background-color:#fff" onmousedown="showBalloon14()">
+                 <textarea class="balloon1" id="makeImg14" name="name" rows="6" cols="36"></textarea>
+               </div>
+               <input class="st" id="Button3" type="button" value="準備中" onclick="changeBoxColor15('#ff3333')""/>
+               <input class="fi" id="Button4" type="button" value="開設" onclick="changeBoxColor15('#66ccff')""/>
+             </td>
+             <td class="f" id="f04" colspan="2">
+               <div id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)" >
+               </div>
+             </td>
+             <td class="f" id="f05"></td>
+           </tr>
+         </table>
+         <div class="box" id="drop1" class="droppable" ondragover="DragOver(event)" ondrop="Drop(event)">
+           土砂災害における追加行動を下に入力し、追加場所へドラックしてください。（文字数制限：12文字　13文字目以降は表示されません）<br>
+           <form data-persist="garlic" method="post">
+           <div class="sub" id="sub1" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub1" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub2" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub2" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub3" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub3" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub4" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub4" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub5" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub5" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub6" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub6" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub7" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub7" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub8" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub8" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub9" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub9" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub10" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub10" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub11" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub11" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub12" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub12" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub13" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub13" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub14" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub14" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub15" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub15" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub16" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub16" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub17" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub17" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub18" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub18" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub19" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub19" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub20" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub20" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub21" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub21" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub22" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub22" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub23" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub23" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub24" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub24" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub25" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub25" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub26" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub26" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub27" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub27" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub28" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub28" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub29" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub29" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub30" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub30" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub31" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub31" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub32" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub32" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub33" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub33" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub34" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub34" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub35" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub35" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub36" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub36" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub37" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub37" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub38" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub38" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub39" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub39" type="text" placeholder="入力してください" style="background-color:#fff">
+           </div>
+           <div class="sub" id="sub40" draggable="true" ondragstart="DragStart(event)" >
+             <input class="sub" name="sub40" type="text" placeholder="入力してください" style="background-color:#fff">
+           </form>
+           </div>
+         </div>
+          <p class="btn"><a href="#pagetop">Page Top▲</a></p>
+          <form>
+            <input type="button" value="戻る" onclick="history.back()">
+            <input type="button" value="更新" onclick="location.reload(true)">
+            <input type="button" value="進む" onclick="history.forward()">
+            <input type="button" value="トップページへ" onclick="location.href=''">
+          </form>
+       </div>
+     </div>
+   <!-- wrapの終わり -->
+
+   <!-- footerの始まり -->
+   <footer>
+     <small>(C)2019 愛媛大学 大気・水環境研究室 粕谷成貴</small>
+     <script type="text/javascript">
+       var str = document.lastModified;
+       document.write(str);
+     </script>
+   </footer>
+   <!-- footerの終わり -->
+
+  </body>
+</html>

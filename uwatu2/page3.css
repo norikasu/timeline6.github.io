@@ -1,0 +1,359 @@
+﻿@charset "utf-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #00cc33;
+  color: #000;
+  font-size: 15px;
+  line-height: 2;
+  zoom: 0.4;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  margin-top: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #3583aa;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #788d98:
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+}
+
+.title {
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+.global-nav {
+  float: right;
+  margin-top: 35px;
+  margin-right: 50px;
+}
+
+.global-nav li {
+  float: left;
+  margin: 0 20px;
+  font-size: 20px;
+  list-style: none;
+}
+
+.global-nav li a {
+  color: #fff;
+}
+
+.global-nav li a:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+
+#wrap {
+  clear: both;
+}
+
+.content {
+  width: 98%;
+  margin: auto 10px;
+}
+
+.btn a {
+  background-color: #009cd3;
+  color: #fff;
+  font-size: 20px;
+  width: 185px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 3px solid #009cd3;
+}
+
+.btn a:hover {
+  text-decoration: none;
+  background-color: #fff;
+  color: #009cd3;
+}
+
+footer {
+  text-align: center;
+  color: #000;
+  padding: 20px 0;
+}
+
+footer small {
+  font-size: 12px;
+}
+
+h1 {
+  margin-bottom: : auto;
+}
+
+h2 {
+  margin-bottom: auto;
+}
+
+h3 {
+  margin-bottom: auto;
+}
+
+input.check {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+h3 {
+  margin-top: 20px;;
+  margin-bottom: auto;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  background: #fff;
+}
+
+th {
+  border: 2px solid #000;
+}
+
+td {
+  border: 2px solid #000;
+}
+
+th.label {
+  background: #0066ff;
+  color: #fff;
+  font-size: 35px;
+}
+
+th.sick {
+  font-size: 30px;
+}
+
+td#compl {
+  width: 5%;
+  text-align: center;
+  background: #66ccff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+td#complete {
+  width: 5%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+th#level {
+  background: #0066ff;
+  width: 15%;
+}
+
+th#level1 {
+  background: #ffffcc;
+  width: 5%;
+  font-size: 35px;
+}
+
+th#level2 {
+  background: #ffff00;
+  font-size: 35px;
+}
+
+th#level3 {
+  background: #ff3333;
+  font-size: 35px;
+}
+
+th#level4 {
+  background: #cc66ff;
+  width: 25%;
+  font-size: 35px;
+}
+
+th#level5 {
+  background: #cc00cc;
+  font-size: 35px;
+}
+
+p.font {
+  text-align: center;
+  margin: 0;
+}
+
+div#font {
+  width: 80%;
+}
+
+div.not_caution {
+  width: 200px;
+  background: #4496d3;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.caution {
+  background: #ffff00;
+  text-align: center;
+  font-weight: bold;
+  width: 70%;
+  font-size: 30px;
+}
+
+div.alarm {
+  background: #ff3333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+div.special_alarm {
+  background: #cc66ff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+div.super_special_alarm {
+  background: #cc00cc;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+div#rain_alarm {
+  width: 50%;
+}
+
+div#alarm {
+  width: 50%;
+}
+
+div#super_danger {
+  width: 50%;
+  float: left;
+}
+
+div#super_special_danger {
+  width: 50%;
+  float: right;
+}
+
+div#prepare_for_evacuation {
+  width: 80%;
+}
+
+ div#evacuation_instructions {
+   width: 60%;
+ }
+
+ div#safety_action {
+   width: 60%;
+   text-align: center;
+ }
+
+ div.confirmation {
+   text-align: right;
+ }
+
+div.droppable {
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+}
+
+div.pre {
+  display: inline;
+}
+
+div.stt {
+  display: inline;
+}
+
+div.fin {
+  display: inline;
+}
+
+div.box {
+  width: 100%;
+  height: 100%;
+  background: #ced;
+  border: 1px solid #000;
+}
+
+div.sub {
+  width: auto;
+  height: auto;
+  background-color: #fff;
+  display: inline;
+}
+
+input.yes1 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+input#information_gathering {
+  width: 100%;
+}
+
+input#adjustment {
+  width: 100%;
+}
+
+input#confirmation1 {
+  width: 60%;
+}
+
+input.sub {
+  height: 24px;
+  font-weight: bold;
+}
+
+input.name {
+  width: 60%;
+}
+
+.balloon1 {
+ display: none;
+}
+
+.balloons1 {
+ position: absolute;
+ display: block;
+ padding: 2px;
+ background-color: #ced;
+ width: 880px;
+ height: 330px;
+ font-size: 60px;
+}
