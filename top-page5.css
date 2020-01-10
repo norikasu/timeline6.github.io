@@ -368,13 +368,6 @@ p.im_en {
   text-orientation: center;
 }
 
-@media screen and [max-width: 480px] {
-  p.im_en {
-  writing-mode: vertical-rl;
-  text-orientation: center;
-  }
-}
-
 p#im_mlit {
   font-weight: bold;
   writing-mode: vertical-rl;
